@@ -1,0 +1,373 @@
+/* -------------------Admin-login --------------*/
+
+.admin-login  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------- user------------------------------ */
+
+.login-body {
+    color: black;
+    font-family: 'Times New Roman';
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #343a40; 
+}
+
+.login-body::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 15px;
+    width: 33%;
+    height: 90vh;
+    background: url('background.jpg') no-repeat center / cover;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 5px rgba(75, 74, 74, 0.7);
+    border: 3px solid grey;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* .card {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+} */
+
+.custom-input {
+    border: 2px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+    width:45px;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+    color: black; /* White text color */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.custom-input:focus {
+    border-color: #80bdff; /* Border color on focus */
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Box shadow on focus */
+}
+
+.login-button {
+    background-color: #007bff;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+.text-primary {
+    cursor: pointer;
+}
+
+.nav .active {
+    color: #007bff !important;
+}
+
+.input-group-text {
+    background-color: transparent !important;
+    color: black !important;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-icon {
+    color:black;
+    width: 20px;
+    height: 20px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+}
+/* =-------------------------------------dashboard-------------------- */
+
+
+.card {
+    background: url('sub-bg.jpg') no-repeat center / cover !important;
+    margin-left: 30px!important;
+    width:80%;
+    margin: 20px 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+/* .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+} */
+.card-title {
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.25rem;
+    color: #007bff;
+}
+.card-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+.buy-button.disabled {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    cursor: not-allowed;
+}
+.alert {
+    margin-top: 20px;
+}
+#formContainer {
+    margin-top: 20px;
+}
+/* .banner img{
+    width:100%;
+    height:500px;
+    border-radius: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+} */
+/*------------------------------------header-nav -----------------------------*/
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    background: linear-gradient(to right, #000000, #000000) !important;
+    padding-top: 50px;
+    transition: padding-left 0.3s ease;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+  }
+
+  .content {
+    margin-top: 0px !important;
+    margin-left: 220px;
+    padding: 20px;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: #A9B2C3 !important;
+    font-family: 'Segoe UI';
+    font-size: 13px;
+  }
+
+  .sidebar li {
+    list-style: none;
+    margin-bottom: 10px;
+  }
+
+ 
+
+  .navbar-toggler {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 9999;
+  }
+
+  .subscription-box {
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .subscription-link a {
+    color: #FFD700 !important;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .subscription-link:hover {
+    color: #fff;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    background: linear-gradient(to bottom, #000000, #000000);
+    padding-top: 50px;
+    transition: padding-left 0.3s ease;
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+  
+  }
+  .sidebar.hide {
+    transform: translateX(-100%);
+  }
+  .content {
+    margin-left: 200px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+  }
+  .content.shifted {
+    margin-left: 0;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: #A9B2C3 !important;
+    font-family: 'Segoe UI';
+    font-size: 13px;
+  }
+
+  .sidebar li {
+    list-style: none;
+    margin-bottom: 10px;
+    transition: padding-left 0.3s ease;
+  }
+
+  
+  .navbar-toggler {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 9999;
+  }
+
+  .sidebar li:hover {
+    padding-left: 20px;
+  }
+
+  .sidebar li.nav-item:hover a.nav-link {
+    color: #fff;
+  }
+  .dashboard-nav .form-control {
+    width: auto;
+    flex-grow: 1;
+  }
+
+  .sidebar li.nav-item:hover i {
+    transform: scale(1.1);
+  }
+/*------------------------------------ Dashboard-nav ----------------------------*/
+.dashboard-nav{
+    border-radius: 25px !important;
+    background: linear-gradient(to bottom, #000000, #000000)!important;
+    box-shadow: 0 6px 25px 0 rgba(0, 0, 0, 0.3), 0 6px 5px 0 rgba(0, 0, 0, 0.3);
+}
+.searchbtn{
+    color:white !important;
+}
+.search{
+    border-radius:18px !important ;
+    background: linear-gradient(to bottom, #fff, #fff)!important;
+  
+}
+/* ------------------------------------------------dashboard --------------------------*/
+.owl-carousel.owl-theme .owl-item .item {
+  height: 250px;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8) !important;
+}
+
+.owl-carousel.owl-theme .owl-item .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0 6px 25px 0 rgba(0, 0, 0, 0.3), 0 6px 5px 0 rgba(0, 0, 0, 0.3);
+}
+.carosel-img{
+  box-shadow: 6px 6px 25px 6px rgba(0, 0, 0, 0.2), 0 6px 25px 0 rgba(0, 0, 0, 0.2);
+}
+/* ------------------------------------------------Product-card --------------------------*/
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  /* box-shadow: 6px 6px 25px 6px rgba(0, 0, 0, 0.2), 0 6px 25px 0 rgba(0, 0, 0, 0.2); */
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-card .card-body {
+  padding: 1.25rem;
+}
+
+.product-card .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.product-card .card-text {
+  color: #777;
+}
+
+.product-card .buy {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.product-card .buy:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+
+  
