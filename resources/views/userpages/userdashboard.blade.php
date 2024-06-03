@@ -29,15 +29,44 @@
 
 
 
-
 <div class="container mt-5">
-        <hr>
-        <h2 class="text-center mt-5"><b>Products</b></h2>
-        <div class="container">
-    <div class="row" id="product-container"></div>
-</div>
+    <div class="container mt-5">
+        @foreach($products->groupBy('category_id') as $categoryId => $categoryProducts)
+            <div class="mb-4">
+                <h2 class="text-center mb-4">{{ $categoryNames[$categoryId] }}</h2>
+                <div class="row">
+                    @foreach($categoryProducts as $product)
+                        <div class="col-lg-4 col-md-6 mb-4 border">
+                            <div class="card h-25 shadow-sm">
+                                <img src="{{ asset('asset/img/') }}/{{ $product->photo }}" class="card-img-top" alt="{{ $product->product_name }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $product->product_name }}</h5>
+                                    <p class="card-text">Price: ₹{{ $product->price }}</p>
+                                    {{-- <p class="card-text">{{ $product->description }}</p> --}}
+                                </div>
+                                {{-- <div class="card-footer bg-transparent border-0">
+                                    <a href="#" class="btn btn-primary btn-sm">View Details</a>
+                                </div> --}}
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endforeach
     </div>
+    
+</div>
 
+
+
+    
+    
+    <hr>
+    {{-- <h2 class="text-center mt-5"><b>Products</b></h2>
+    <div class="container">
+        <div id="product-container" class="row"></div>
+    </div> --}}
+</div>
 
 
 

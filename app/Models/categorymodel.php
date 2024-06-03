@@ -13,13 +13,6 @@ class categorymodel extends Model
 
     ];
 
-    public static function addcategory($data)
-    {
-        {
-            $category = new CategoryModel();
-            $category->category_name = $data['category_name'];
-            $category->save();
-        }
-    }
+
     use HasFactory;
 }

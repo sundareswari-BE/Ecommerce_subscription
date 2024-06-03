@@ -79,8 +79,8 @@ class usercontroller extends Controller
             if ($user->name !== 'admin') {
               $subscription = subscribtionmodel::where('user_id', $user->id)->first();
                 if ($subscription) {
-                //   $currentDate = '2025-05-30';
-                  $currentDate = date('Y-m-d');
+                   //$currentDate = '2025-05-30';
+                   $currentDate = date('Y-m-d');
                     $limitDate = $subscription->subscribed_limitdate;
                     $upgradeDate = $subscription->upgradeDate;
                   if ($currentDate >= $limitDate) {
@@ -115,36 +115,45 @@ class usercontroller extends Controller
         return view('userpages.subscribtionpage');
     }
 
+
+
     public function userdashboard(Request $request)
     {
-        $id = Auth::id();
-        $subscription = SubscribtionModel::where('user_id', $id)->first();
-        $userData = MyModel::findOrFail($id);
-        $products = productmodel::all(); 
+        $userId = Auth::id();
+        $subscription = SubscribtionModel::where('user_id', $userId)->first();
+        $userData = MyModel::findOrFail($userId);
+        $products = ProductModel::all(); 
+        $categories = categorymodel::all(); 
         $activeSubscription = false; 
         $reachedUpgradeDate = false;
+        $categoryNames = [];
     
         if ($subscription) {
-            //$currentDate = '2025-05-30'; 
-             $currentDate = now()->format('Y-m-d');
-            
+            $currentDate = now()->format('Y-m-d');
+    
             if ($currentDate < $subscription->upgradeDate) {
                 $activeSubscription = true;
             } elseif ($currentDate >= $subscription->upgradeDate) {
                 $reachedUpgradeDate = true;      
             }
         } else {
-          
-            return redirect()->route('subcribtionformshowdata');
+            return redirect()->route('subcribtionformshowdata')->with('message', 'You do not have an active subscription.');
+        }
+    
+        foreach ($products->groupBy('category_id') as $categoryId => $categoryProducts) {
+            $categoryNames[$categoryId] = categorymodel::find($categoryId)->category_name;
         }
     
         return view('userpages.userdashboard', [
             'products' => $products,
+            'categories' => $categories,
             'userData' => $userData,
             'activeSubscription' => $activeSubscription,
             'reachedUpgradeDate' => $reachedUpgradeDate,
+            'categoryNames' => $categoryNames,
         ]);
     }
+    
     
 
     // ----------------------------------------------suscribeform------------------------
@@ -177,6 +186,14 @@ class usercontroller extends Controller
             'reachedUpgradeDate' => $reachedUpgradeDate,
         ]);
     }
+
+
+
+
+
+
+
+
     
     public function subscribtionformstoredata(Request $request)
     {
@@ -198,6 +215,29 @@ class usercontroller extends Controller
 
         return redirect()->route('userdashboard')->with('message', 'You are subscribed');;
     }
+
+
+ 
+    
+     
+            public function search(Request $request)
+            {
+                $searchQuery = $request->input('search');
+                
+                
+                $products = Productmodel::where('product_name', 'like', '%' . $searchQuery . '%')
+                                    ->orWhere('description', 'like', '%' . $searchQuery . '%')
+                                    ->get();
+            
+      
+                $categories = Categorymodel::where('category_name', 'like', '%' . $searchQuery . '%')->get();
+        
+                $request->session()->put('searchResults', ['products' => $products, 'categories' => $categories]);
+            
+                return redirect()->route('categoryPage');
+            }
+            
+    
 }
 
 

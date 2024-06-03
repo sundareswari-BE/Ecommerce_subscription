@@ -18,5 +18,9 @@ class productmodel extends Model
         'status',
 
     ];
+    public function category()
+    {
+        return $this->belongsTo(CategoryModel::class, 'category_id');
+    }
     use HasFactory;
 }
