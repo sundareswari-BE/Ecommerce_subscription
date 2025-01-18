@@ -10,21 +10,21 @@
 </head>
 
 <body>
-@if (session('message'))
-<div class="alert  alert-success flash-message text-center text-success">
-    {{ session('message') }}
-</div>
-@endif
-@if (session('success'))
-<div class="alert alert-success flash-message text-center text-success mx-5">
-    {{ session('success') }}
-</div>
-@endif
-@if (session('error'))
-<div class=" alert alert-danger flash-message text-center text-danger mx-5">
-    {{ session('error') }}
-</div>
-@endif
+    @if (session('message'))
+        <div class="alert  alert-success flash-message text-center text-success">
+            {{ session('message') }}
+        </div>
+    @endif
+    @if (session('success'))
+        <div class="alert alert-success flash-message text-center text-success mx-5">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if (session('error'))
+        <div class=" alert alert-danger flash-message text-center text-danger mx-5">
+            {{ session('error') }}
+        </div>
+    @endif
 
     <a href="{{ route('logout') }}" method="POST">Logout</a>
 
@@ -32,7 +32,8 @@
     <div class="container mt-5">
         <hr>
         <h2 class="text-center mt-5"><b>Pricing and Plans</b></h2>
-        <h5 class="text-center mt-5">View our straightforward ecommerce website pricing. Once you're happy click "Pay & Activate"<br> to complete the activation process with the chosen plan and we'll do the rest!</h5>
+        <h5 class="text-center mt-5">View our straightforward ecommerce website pricing. Once you're happy click "Pay &
+            Activate"<br> to complete the activation process with the chosen plan and we'll do the rest!</h5>
         <div class="row mt-5">
             <!-- Subscription Cards -->
             <div class="col-md-4">
@@ -87,7 +88,8 @@
     </div>
 
     <!-- Subscription Form Modal -->
-    <div class="modal fade" id="subscriptionModal" tabindex="-1" role="dialog" aria-labelledby="subscriptionModalLabel" aria-hidden="true">
+    <div class="modal fade" id="subscriptionModal" tabindex="-1" role="dialog"
+        aria-labelledby="subscriptionModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -101,11 +103,13 @@
                         {{ csrf_field() }}
                         <div class="mb-3 mt-3">
                             <label for="name" class="form-label">Name:</label>
-                            <input type="text" class="form-control" id="subscriber-name" name="subscriber-name" value="{{ $userData->name }}" readonly>
+                            <input type="text" class="form-control" id="subscriber-name" name="subscriber-name"
+                                value="{{ $userData->name }}" readonly>
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="sub" class="form-label">Subscription:</label>
-                            <input type="text" class="form-control" id="subscription-amount-input" name="subscription_amount" value="" readonly>
+                            <input type="text" class="form-control" id="subscription-amount-input"
+                                name="subscription_amount" value="" readonly>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
@@ -115,7 +119,8 @@
     </div>
 
     <!-- Subscription Limit Reached Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -136,20 +141,41 @@
 
     @include('template.footer')
 
-   
-<script>
+
+    <script>
+    //     function styleButtons() {
+    //         var activeSubscription = <?php echo json_encode($activeSubscription);  ?>;
+    //         var reachedUpgradeDate = <?php echo json_encode($reachedUpgradeDate); ?>;
+
+    //         var upgradeButton = document.querySelector('.upgrade_button');
+
+    //         if (activeSubscription) {
+    //             upgradeButton.style.display = 'none';
+    //         } else if (reachedUpgradeDate) {
+    //             upgradeButton.style.display = 'block';
+    //         } else {
+    //             upgradeButton.classList.add('btn-primary');
+    //         }
+    //     }
+    // </script>
+
+    <script>
     function styleButtons() {
-    var activeSubscription = <?php echo json_encode($activeSubscription); ?>;
-    var reachedUpgradeDate = <?php echo json_encode($reachedUpgradeDate); ?>;
+        var activeSubscription = <?php echo json_encode((bool)$activeSubscription); ?>;
+        var reachedUpgradeDate = <?php echo json_encode((bool)$reachedUpgradeDate); ?>;
 
-    var upgradeButton = document.querySelector('.upgrade_button');
+        var upgradeButton = document.querySelector('.upgrade_button');
 
-    if (activeSubscription) {
-      upgradeButton.style.display = 'none';
-    } else if (reachedUpgradeDate) {
-      upgradeButton.style.display = 'block';
-    } else {
-      upgradeButton.classList.add('btn-primary');
+        if (upgradeButton) {
+            if (activeSubscription) {
+                upgradeButton.style.display = 'none';
+            } else if (reachedUpgradeDate) {
+                upgradeButton.style.display = 'block';
+            } else {
+                upgradeButton.classList.add('btn-primary');
+            }
+        } else {
+            console.error("Upgrade button element not found");
+        }
     }
-  }
-  </script>
+</script>

@@ -117,7 +117,7 @@
 
 
 
-    const products = @json($products);
+
 
 function renderProducts(products) {
     const productContainer = document.getElementById('product-container');

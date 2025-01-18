@@ -4,14 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\categoryController;
-
 use App\Http\Controllers\userController;
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Auth;
 
 // Route::get('admin/adminlogin', [MyController::class, 'adminloginForm'])->name('adminlogin');
 // Route::post('admin/adminlogin', [MyController::class, 'adminlogincheck'])->name('adminlogincheck');
-
 // Route::get('admin/admindashboard', [MyController::class, 'admindashboard'])->name('admindashboard');
 // Route::get('admin/category', [MyController::class, 'category'])->name('category');
 // Route::post('admin/category', [MyController::class, 'addcategory'])->name('addcategory');

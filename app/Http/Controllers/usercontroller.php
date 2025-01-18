@@ -176,7 +176,7 @@ class usercontroller extends Controller
                 $reachedUpgradeDate = true;
             }
         } else {
-            return redirect()->route('subscription_not_found');
+            // return redirect()->with('message','subscription_not_found');
         }
         
         return view('userpages.subscribtionpage', [
